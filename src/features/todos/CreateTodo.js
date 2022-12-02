@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { todoAdded } from "./todosSlice";
 
-function CreateTodo() {
+function CreateTodo(){
   const [text, setText] = useState("");
   const dispatch = useDispatch();
 
-  function handleChange(event) {
+  function handleChange(event){
     setText(event.target.value);
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event){
     event.preventDefault();
     dispatch(todoAdded(text));
+    setText("");
   }
 
   return (
